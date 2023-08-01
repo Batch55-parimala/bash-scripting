@@ -14,5 +14,5 @@
 # Ex : 
 #echo -e "\e[COLOURCODEm Your mes to be printed in colour \e[0m"
 
-echo -e "\e31m Iam learning bash scripting \e[0m"
-echo -e "\e36m Iam learining bash scripting \e[0m"
+echo -e "\e[31m Iam learning bash scripting \e[0m"
+echo -e "\e[36m Iam learining bash scripting \e[0m"
