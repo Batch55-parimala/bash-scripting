@@ -27,7 +27,7 @@ Along with Linux Bash Syntax
 Then we will automate the infrastructure provisioning
 And then Configuration Management.
 
-##git asdd .Following are the shell scripting topics which we discuss as a part of our project
+##Following are the shell scripting topics which we discuss as a part of our project
 1. SheBang Notation and Comments
 2. Printing
 3. Variables
