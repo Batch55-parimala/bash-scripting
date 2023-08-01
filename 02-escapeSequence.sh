@@ -1,3 +1,9 @@
+#!bin/bash
+
+#shebang notation: This tells the sript that needs to be executed with the interpretor
+#There can only be one interprtor per script and that should always in first line
+
+
 #shebang notation
 
 echo welcome to bash scripting
