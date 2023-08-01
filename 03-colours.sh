@@ -16,3 +16,10 @@
 
 echo -e "\e[31m Iam learning bash scripting \e[0m"
 echo -e "\e[36m Iam learining bash scripting \e[0m"
+
+
+#To print something in background and fore ground color, here is the syntax
+
+# echo -e "e[background;foregroundcodem your mes \e[0m"
+
+echo -e "\e[44;31m iam learning bash scripting \e[0m"
