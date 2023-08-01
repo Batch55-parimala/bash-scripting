@@ -1,3 +1,5 @@
 #!/bin/bash
 
 #shebang Notation
+echo line1
+echo line2
