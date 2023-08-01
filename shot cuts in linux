@@ -1,0 +1,7 @@
+##To have shor cuts for any of the command that we are using n number of times we can short cut the command by using alias command.
+
+1. for example " GIT PULL" we use the below command
+    . alias gp="git pull" gp stand for git pull
+
+## if we want to keep the short cut command alive even after signing off the terminal we can edit in bash profile and give the alias comman:
+    . vim ~/.bash_profile (this need to be executed in the work station)
