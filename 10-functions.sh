@@ -33,7 +33,7 @@ sample
 stat () {
     echo "Numer of sessions opened are $(who | wc -l)"
     echo "Todays date is $(date +%F)"
-    echo average no of cpu utilization in last 5 min $uptime | awk -F : '{print $NF}' | awk -F , '{print $2}')"
+    echo "average no of cpu utilization in last 5 min $uptime | awk -F : '{print $NF}' | awk -F , '{print $2}')"
 }
 
 stat
