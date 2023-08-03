@@ -11,14 +11,14 @@ c=30
 
 echo value of a is $a
 echo value of b is $b
-echo value of c is $c]
+echo value of c is $c
 
 echo $0
 echo "Executed script name is : $0
 
-echo "Iam learding $1"
-echo "to learn devops it needs $2
-echo "iam getting trained on $3
+echo "Iam learning $1"
+echo "to learn devops it needs $2"
+echo "iam getting trained on $3"
 
 
 #  bash scriptName.sh  arg1  arg2  arg3
@@ -29,7 +29,7 @@ echo "iam getting trained on $3
 #                     $1    $2    $3  
 
 
-cho $$    # $$ is going to print the PID of the current proces 
+echo $$    # $$ is going to print the PID of the current proces 
 echo $#    # $# is going to print the number of arguments
 echo $?    # $? is going to print the exit code of the last command.
 echo $*    # $* is going to print the used arguments
