@@ -7,6 +7,6 @@ sample() {
 
 sample
 
-sample is completed for devops
+echo sample is completed for devops
 
 sample
