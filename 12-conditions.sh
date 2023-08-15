@@ -11,12 +11,12 @@
 Action=$1
 
 case $Action in
-   strat)
+   start)
        echo -e "\e[32m starting payment service \e{0m"
        exit 0
        ;;
    stop)
-       echo -e "\e[31 m stopping the payment service \e[0m"
+       echo -e "\e[31m stopping the payment service \e[0m"
        exit 1
        ;;
    restart)
