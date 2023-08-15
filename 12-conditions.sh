@@ -23,10 +23,9 @@ case $Action in
        echo -e "\e[33m Restarting the payment serice \e[0m"
        exit 2
        ;;
-   *)
-       echo -e "\e[35m Valid Options are start or stop or restart \e[0m"
-       echo -e "\e[33m Example Usage \e[0m :\n \t bash scriptName stop"
+    *)
+       echo -e "\e[35m Valid options are strt or srestart \e[0m"
+       echo -e "\e[33m Example usage \e[0m : /n /t bash scriptname stop"
        exit 3
-        ;;
-
- esac       
+       ;;
+esac       
