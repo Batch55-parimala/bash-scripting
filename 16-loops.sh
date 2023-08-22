@@ -15,3 +15,9 @@
 for val in 10 20 30 40 50 60 70 ; do
     echo "value for the loop is $val"
 done
+
+
+for val in latha sneha deepu loki pari ; do
+    echo "name of the person is $val"
+done    
+
