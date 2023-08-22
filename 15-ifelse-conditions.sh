@@ -10,11 +10,11 @@ if [ "$ACTION" == "Start" ]; then
 
 elif [ "$ACTION" == "stop" ]; then
       echo -e "\e[31m stopping payment \e[0m"
-      exit1
+      exit 1
 
 elif [ "$ACTION" == "restart" ]; then
       echo -e "\e[35m restarting payment \e[0m"
-      exit2 
+      exit 2 
 
  else
       echo -e "\e[35m Valid options are start or stop or restart \e[0m"
