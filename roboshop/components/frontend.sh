@@ -32,15 +32,23 @@ echo -n "Downloading frontend component"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $?
 
+echo -n "clean up the frontend:"
+cd /usr/share/nginx/html
+rm -rf *      &>>   /tmp/frontend.log
+stat $?
 
+echo -n "Extracting frontend:"
+unzip /tmp/frontend.zip      &>>   /tmp/frontend.log
+stat $?
 
+echo -n "sorting out frontend:"
+mv frontend-main/* .   &>>   /tmp/frontend.log
+mv static/* .          &>>   /tmp/frontend.log
+rm -rf frontend-main README.md  &>>   /tmp/frontend.log
+mv localhost.conf /etc/nginx/default.d/roboshop.conf
+stat $?
 
-
-
-# cd /usr/share/nginx/html
-# rm -rf *
-# unzip /tmp/frontend.zip
-# mv frontend-main/* .
-# mv static/* .
-# rm -rf frontend-main README.md
-# mv localhost.conf /etc/nginx/default.d/roboshop.conf
+echo -n "Restarting frontend:"
+systemctl daemon-reload   &>>   /tmp/frontend.log
+systemctl restart ngnix     &>>   /tmp/frontend.log
+stat $?
