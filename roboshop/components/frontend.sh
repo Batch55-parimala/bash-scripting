@@ -1,6 +1,9 @@
 #!bin/bash
 
 USER_ID=$(id -u)
+COMPONENT=frontend
+LOGFILE="/tmp/${COMPONENT}.log"
+
 
 if [ $USERD_ID -ne 0 ] ; then
     echo -e "\e[31m script needs to executed by root user or sudo privilage \e[0m" \n \t Example: \n\t\t sudo wrapper.sh frontend
@@ -17,38 +20,38 @@ stat() {
     fi
 }   
 
-echo -e "\e[35m configuring frontend \e[0m \n"
+echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
 
 echo -n "Installing ngnix :"
-yum install nginx -y   &>>   /tmp/frontend.log
+yum install nginx -y   &>>   ${LOGFILE}
 stat $?
 
 echo -n "starting ngnix:"
-systemctl enable nginx  &>>   /tmp/frontend.log
-systemctl start nginx   &>>   /tmp/frontend.log
+systemctl enable nginx  &>>   ${LOGFILE}
+systemctl start nginx   &>>   ${LOGFILE}
 stat $?
 
-echo -n "Downloading frontend component"
+echo -n "Downloading ${COMPONENT} component"
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
 stat $?
 
-echo -n "clean up the frontend:"
+echo -n "clean up the ${COMPONENT}:"
 cd /usr/share/nginx/html
-rm -rf *      &>>   /tmp/frontend.log
+rm -rf *      &>>   ${LOGFILE}
 stat $?
 
-echo -n "Extracting frontend:"
-unzip /tmp/frontend.zip      &>>   /tmp/frontend.log
+echo -n "Extracting ${COMPONENT}:"
+unzip /tmp/frontend.zip      &>>   ${LOGFILE}
 stat $?
 
-echo -n "sorting out frontend:"
-mv frontend-main/* .   &>>   /tmp/frontend.log
-mv static/* .          &>>   /tmp/frontend.log
-rm -rf frontend-main README.md  &>>   /tmp/frontend.log
+echo -n "sorting out ${COMPONENT}:"
+mv frontend-main/* .   &>>   ${LOGFILE}
+mv static/* .          &>>   ${LOGFILE}
+rm -rf frontend-main README.md  &>>   ${LOGFILE}
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
-echo -n "Restarting frontend:"
-systemctl daemon-reload     &>>   /tmp/frontend.log
-systemctl restart nginx     &>>   /tmp/frontend.log
+echo -n "Restarting ${COMPONENT}:"
+systemctl daemon-reload     &>>   ${LOGFILE}
+systemctl restart nginx     &>>   ${LOGFILE}
 stat $?
