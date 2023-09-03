@@ -29,3 +29,11 @@ stat $?
 echo -n "Installing ${COMPONENT} :"
 yum install -y mongodb-org    &>>  ${LOGFILE}
 stat $?
+
+echo -n "Enabling  ${COMPONENT} visibility:"
+sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/mongodb.conf
+stat $?
+
+echo -n "Starting  ${COMPONENT} service:"
+systemctl enable mongod    &>>  ${LOGFILE}
+systemctl start mongod     &>>  ${LOGFILE}
