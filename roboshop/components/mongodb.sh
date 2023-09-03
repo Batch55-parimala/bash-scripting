@@ -37,3 +37,4 @@ stat $?
 echo -n "Starting  ${COMPONENT} service:"
 systemctl enable mongod    &>>  ${LOGFILE}
 systemctl start mongod     &>>  ${LOGFILE}
+stat $?
