@@ -1,6 +1,6 @@
 #!bin/bash
 
-SER_ID=$(id -u)
+USER_ID=$(id -u)
 COMPONENT=mongodb
 LOGFILE="/tmp/${COMPONENT}.log"
 
