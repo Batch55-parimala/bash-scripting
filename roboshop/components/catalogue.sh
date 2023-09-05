@@ -53,3 +53,20 @@ echo -n "changing the ownership:"
 mv ${COMPONENT}-main ${COMPONENT}
 chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}
 stat $?
+
+echo -n "Generating the ${COMPONENT} articrafts:"
+cd /home/${APPUSER}/${COMPONENT}/
+npm install  &>>  ${LOGFILE}
+stat $?
+
+echo -n "Updating the ${COMPONENT} service :"
+sed -ie 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/${COMPONENT}/systemd.service
+mv /home/${APPUSER}/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
+stat $?
+
+echo -n "Starting the  ${COMPONENT} service:"
+systemctl daemon-reload ${COMPONENT}  &>>  ${LOGFILE}
+systemctl enable ${COMPONENT}   &>>  ${LOGFILE}
+systemctl restart ${COMPONENT}   &>>  ${LOGFILE}
+stat $?
+
