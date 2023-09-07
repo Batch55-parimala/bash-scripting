@@ -43,10 +43,10 @@ echo -n "Downloading the ${COMPONENT}:"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
 stat $?
 
-echo -n "Copying ${COMPONENT} TO ${APPUSER} home directory:"
+echo -n "Copying the ${COMPONENT} to ${APPUSER} home directory :"
 cd /home/${APPUSER}/
-rm -rf ${COMPONENT}   &>>  ${LOGFILE}
-unzip -o /tmp/${COMPONENT}.zip  &>>  ${LOGFILE}
+rm -rf ${COMPONENT}  &>>  ${LOGFILE}
+unzip -o /tmp/${COMPONENT}.zip   &>>  ${LOGFILE}
 stat $?
 
 echo -n "changing the ownership:"
