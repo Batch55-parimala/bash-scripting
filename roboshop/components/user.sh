@@ -1,7 +1,7 @@
 #!bin/bash
 
 USER_ID=$(id -u)
-COMPONENT=User
+COMPONENT=user
 LOGFILE="/tmp/${COMPONENT}.log"
 APPUSER="roboshop"
 
