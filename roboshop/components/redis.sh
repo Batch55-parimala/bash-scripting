@@ -24,7 +24,7 @@ stat() {
 echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
 
 echo -n "Configuring ${COMPONENT} repo :"
-curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo
+curl -L https://raw.githubusercontent.com/stans-robot-project/redis/main/redis.repo -o /etc/yum.repos.d/redis.repo  &>>  ${LOGFILE}
 stat $?
 
 echo -n "Installing ${COMPONENT} :"
@@ -33,7 +33,7 @@ stat $?
 
 echo -n "Enabling  ${COMPONENT} visibility:"
 sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/${COMPONENT}.conf
-sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/${COMPONENT}/{COMPONENT}.conf
+sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/${COMPONENT}/${COMPONENT}.conf
 stat $?
 
 echo -n "Starting  ${COMPONENT} service:"
