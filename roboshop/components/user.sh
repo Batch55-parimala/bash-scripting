@@ -40,7 +40,7 @@ if [ $? -ne 0 ] ; then
 fi
 
 echo -n "Downloading the ${COMPONENT}:"
-curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"
+curl -s -L -o /tmp/user.zip "https://github.com/stans-robot-project/user/archive/main.zip"
 stat $?
 
 echo -n "Copying the ${COMPONENT} to ${APPUSER} home directory :"
