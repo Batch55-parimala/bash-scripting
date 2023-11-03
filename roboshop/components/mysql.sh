@@ -25,7 +25,7 @@ DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk -F "
 stat $?
 
 
-echo "show databases;" |mysql -uroot -pRoboShop@1    &>>  ${LOGFILE}
+echo "show databases;" | mysql -uroot -pRoboShop@1    &>>  ${LOGFILE}
 if [ $? -ne 0 ];then
 echo -n "Performing default password reset of root account :"
 echo "ALTER USER 'root'@localhost' INDENTIFIED by 'RoboShop@1'" | mysql --connect-expired-password -uroot -p$DEFAULT_ROOT_PASSWORD    &>>  ${LOGFILE}
@@ -35,7 +35,8 @@ fi
 echo "show plugins" | mysql -uroot -pRoboShop@1 | grep validate_password  &>>  ${LOGFILE}  
 if [ $? -eq 0 ]; then
 echo -n "uninstalling password-validate plugin"
-echo " uninstall plugin validate_password " | mysql -uroot -pRoboShop@1    &>>  ${LOGFILE}
+echo "uninstall plugin validate_password" | mysql -uroot -pRoboShop@1    &>>  ${LOGFILE}
+stat $?
 fi
 
 echo -n "Downloading the ${COMPONENT} schema:"
