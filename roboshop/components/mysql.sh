@@ -39,9 +39,9 @@ if [ $? -eq 0 ]; then
     stat $?
 fi 
 
-echo -n "Downloading the ${COMPONENT} schema:"
-curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
-stat $?
+echo -n "Downloading the $COMPONENT schema:"
+curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
+stat $? 
 
 echo -n "Extracting ${COMPONENT} schema:"
 cd /tmp
