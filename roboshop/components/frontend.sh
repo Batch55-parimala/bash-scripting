@@ -32,7 +32,7 @@ systemctl start nginx   &>>   ${LOGFILE}
 stat $?
 
 echo -n "Downloading ${COMPONENT} component"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/${COMPONENT}/archive/main.zip"
 stat $?
 
 echo -n "clean up the ${COMPONENT}:"
@@ -49,10 +49,9 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Updating the Backend Components in the reverse proxy file:"
-
-for component in catalogue user cart shipping payment ; do 
+for component in catalogue user cart shiiping payment ; do
     sed -i -e "/${component}/s/localhost/${component}.roboshop.internal/" /etc/nginx/default.d/roboshop.conf
-done 
+done
 
 echo -n "Restarting ${COMPONENT}:"
 systemctl daemon-reload     &>>   ${LOGFILE}
