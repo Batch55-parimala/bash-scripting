@@ -21,7 +21,6 @@ stat() {
     fi
 }   
 
-### Creating user account ##
 CREATE_USER () {
     id ${APPUSER}   &>>  ${LOGFILE}
     if [ $? -ne 0 ] ; then 
@@ -48,7 +47,7 @@ DOWNLOAD_AND_EXTRACT() {
     stat $?
 }
 
-## configuring services##
+
 CONFIG_SVC() {
     echo -n "Updating the ${COMPONENT} service :"
     sed -ie -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/${APPUSER}/${COMPONENT}/systemd.service
@@ -63,7 +62,7 @@ CONFIG_SVC() {
 }
 
 
-## Declaring NodeJS ###
+
 NODEJS() {
 
     echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
