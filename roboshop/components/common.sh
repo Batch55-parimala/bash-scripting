@@ -85,3 +85,28 @@ NODEJS() {
     CONFIG_SVC
 
 }
+
+MVN_PACKAGE() {
+
+    echo -n"Genrating the ${COMPONENT} artificats :"
+    cd /home/${APPUSER}/${COMPONENT}/
+    mvn clean package &>>  ${LOGFILE}
+    mv target/shipping-1.0.jar shipping.jar
+    stat $?
+}
+
+
+JAVA () {
+      echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
+
+      echo -n "Installing maven:"
+      yum install maven -y &>>  ${LOGFILE}
+      stat $?
+
+    CREATE_USER
+    DOWNLOAD_AND_EXTRACT
+    MVN_PACKAGE
+    CONFIG_SVC
+
+
+}    
