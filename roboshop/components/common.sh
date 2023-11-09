@@ -21,7 +21,7 @@ stat() {
     fi
 }   
 
-CREATE_USER () {
+CREATE_USER() {
     id ${APPUSER}   &>>  ${LOGFILE}
     if [ $? -ne 0 ] ; then 
         echo -n "Creating application User account:"
