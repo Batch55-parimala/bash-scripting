@@ -87,29 +87,26 @@ NODEJS() {
 }
 
 MVN_PACKAGE() {
-
-    echo -n"Genrating the ${COMPONENT} artificats :"
-    cd /home/${APPUSER}/${COMPONENT}/
-    mvn clean package &>>  ${LOGFILE}
-    mv target/shipping-1.0.jar shipping.jar
-    stat $?
+        echo -n "Generating the ${COMPONENT} artifacts :"
+        cd /home/${APPUSER}/${COMPONENT}/
+        mvn clean package   &>> ${LOGFILE}
+        mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+        stat $?
 }
 
-
 JAVA() {
-    echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
+        echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
 
-    echo -n "Installing maven:"
-    yum install maven -y  &>>  ${LOGFILE}
-    stat $?
+        echo -n "Installing maven:"
+        yum install maven -y    &>> ${LOGFILE}
+        stat $? 
 
-    CREATE_USER
+        CREATE_USER              # calls CREATE_USER function that creates user account.
 
-    DOWNLOAD_AND_EXTRACT
+        DOWNLOAD_AND_EXTRACT     # Downloads and extracts the components
 
-    MVN_PACKAGE
+        MVN_PACKAGE
 
-    CONFIG_SVC
+        CONFIG_SVC
 
-
-}    
+}
