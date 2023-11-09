@@ -97,19 +97,19 @@ MVN_PACKAGE() {
 
 
 JAVA() {
-      echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
+    echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
 
-      echo -n "Installing maven:"
-      yum install maven -y &>>  ${LOGFILE}
-      stat $?
+    echo -n "Installing maven:"
+    yum install maven -y  &>>  ${LOGFILE}
+    stat $?
 
-     CREATE_USER
+    CREATE_USER
 
-     DOWNLOAD_AND_EXTRACT
+    DOWNLOAD_AND_EXTRACT
 
-     MVN_PACKAGE
+    MVN_PACKAGE
 
-     CONFIG_SVC
+    CONFIG_SVC
 
 
 }    
