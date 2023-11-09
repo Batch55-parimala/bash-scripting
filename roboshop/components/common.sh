@@ -96,7 +96,7 @@ MVN_PACKAGE() {
 }
 
 
-JAVA () {
+JAVA() {
       echo -e "\e[35m configuring ${COMPONENT} \e[0m \n"
 
       echo -n "Installing maven:"
