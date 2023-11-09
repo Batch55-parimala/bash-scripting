@@ -1,6 +1,6 @@
 #!bin/bash
 
-COMPONENT=shiiping
+COMPONENT=shipping
 
 source components/common.sh
 JAVA 

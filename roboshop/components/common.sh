@@ -103,10 +103,13 @@ JAVA () {
       yum install maven -y &>>  ${LOGFILE}
       stat $?
 
-    CREATE_USER
-    DOWNLOAD_AND_EXTRACT
-    MVN_PACKAGE
-    CONFIG_SVC
+     CREATE_USER
+
+     DOWNLOAD_AND_EXTRACT
+
+     MVN_PACKAGE
+
+     CONFIG_SVC
 
 
 }    
