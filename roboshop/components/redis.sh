@@ -5,8 +5,8 @@ COMPONENT=redis
 LOGFILE="/tmp/${COMPONENT}.log"
 
 
-if [ $USERD_ID -ne 0 ] ; then
-    echo -e "\e[31m script needs to executed by root user or sudo privilage \e[0m" \n \t Example: \n\t\t sudo wrapper.sh frontend
+if [ $USER_ID -ne 0 ] ; then
+    echo -e "\e[31m script needs to executed by root user or sudo privilage \e[0m \n \t Example: \n\t\t sudo wrapper.sh frontend"
     exit 1
 
 fi
