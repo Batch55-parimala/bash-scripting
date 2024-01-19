@@ -9,8 +9,8 @@
 
 COMPONENT=$1
 if  [ -z $1 ] ; then
-     echo -e "\e[32m COMPONENT NAME IS NEEDED \e[0m \n \t \t"
-     echo -e "\e[31m Ex Usage \e[0m \n\t\t $ bash launch-ec2.sh shipping"
+     echo -e "\e[31m COMPONENT NAME IS NEEDED \e[0m \n \t \t"
+     echo -e "\e[35m Ex Usage \e[0m \n\t\t $ bash launch-ec2.sh shipping"
      exit1
 fi
      
