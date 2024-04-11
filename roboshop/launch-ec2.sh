@@ -18,12 +18,12 @@ if  [ -z $1 ] ; then
 fi
      
 AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values= DevOps-LabImage-CentOS7" | jq ".Images[].ImageId" | sed -e 's/"//g')"
-SG_ID="$(aws ec2 describe-security-groups --filters Name=group-nam, nValues=B55_Allow all | jq . '.SecurityGroups[].GroupID' sed -e 's/"//g')"
+SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name, nValues=B55_Allow all | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
 
 crate_ec2() {
 
    echo -e "*****Creating \e[35m ${COMPONENT} \e[0m server is in progress ******"
-   PRIVATEIP=$(aws ec2 run-instances --image-id "ami-0f75a13ad2e340a58" --instance-type t3.micro  --security-group-ids sg-0cc65d7ddd0b64dad --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
+   PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.micro  --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
    echo -e "Private IP addrees of the $COMPONENT is $PRIVATEIP \n\n"
    echo -e "Creating DNS record of ${COMPONENT}: "
 
