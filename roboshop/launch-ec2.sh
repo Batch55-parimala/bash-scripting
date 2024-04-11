@@ -20,7 +20,7 @@ fi
 AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values= DevOps-LabImage-CentOS7" | jq ".Images[].ImageId" | sed -e 's/"//g')"
 SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=B55_Allow all | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
 
-crate_ec2() {
+create_ec2() {
 
    echo -e "*****Creating \e[35m ${COMPONENT} \e[0m server is in progress ******"
    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type t3.micro  --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq '.Instances[].PrivateIpAddress' | sed -e 's/"//g')
