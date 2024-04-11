@@ -18,7 +18,7 @@ if  [ -z $1 ] ; then
 fi
      
 AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values= DevOps-LabImage-CentOS7" | jq ".Images[].ImageId" | sed -e 's/"//g')"
-SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name, nValues=B55_Allow all | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
+SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name, Values=B55_Allow all | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
 
 crate_ec2() {
 
